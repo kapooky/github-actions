@@ -14,13 +14,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set the value
+    - name: Fetch the latest version of runner
       id: step_one
       run: |
        echo "tag=$(curl --silent "https://api.github.com/repos/actions/runner/releases/latest" | jq -r .tag_name | sed 's/[^0-9.]*//g')" >> $GITHUB_ENV
-    - name: Use the value
+    - name: Use the Github Action enviroment variable
       id: step_two
       run: |
-       echo "${{ env.tag }}" # This will output 'yellow'
+       echo "${{ env.tag }}" # This will output the latest runner version. 
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
