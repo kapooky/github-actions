@@ -1,4 +1,4 @@
-# base
+# drop the base
 FROM ubuntu:18.04
 # set the github runner version
 ARG RUNNER_VERSION="2.286.1"
