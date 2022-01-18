@@ -3,8 +3,7 @@ FROM ubuntu:18.04
 # set the github runner version
 ARG RUNNER_VERSION="2.286.1"
 # update the base packages and add a non-sudo user
-RUN apt-get update -y && apt-get upgrade -y && apt-get install -y unzip git && useradd -m
-docker
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y unzip git && useradd -m docker
 # install python and the packages the your code depends on along with jq so we can parse
 JSON
 # add additional packages as necessary
