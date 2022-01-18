@@ -23,4 +23,4 @@ jobs:
       run: |
        echo "${{ env.tag }}" # This will output the latest runner version. 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s) --build-arg RUNNER_VERSION=${{ env.tag }}
